@@ -18,3 +18,12 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+tasks.withType<Jar> {
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    manifest {
+        attributes["Main-Class"] = "com.joyousjake.flashCards.ConsoleAppKt"
+    }
+}
