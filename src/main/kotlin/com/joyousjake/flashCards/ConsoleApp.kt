@@ -3,8 +3,8 @@ package com.joyousjake.flashCards
 
 fun main(args: Array<String>) {
     print("Enter the size of the multiplication table (Default: 12; 12x12) ")
-    val size = readInt()
-    println("The size of the table is $size by $size")
+    val table = MultiplicationTable(readInt())
+    println(table)
 }
 
 fun readInt(): Int {
