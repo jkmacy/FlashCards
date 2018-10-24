@@ -1,16 +1,8 @@
 package com.joyousjake.flashCards
 
-const val tablePrompt = "Enter the size of the multiplication table [Default - 12 (12x12); table size should be min of 3]: "
 
 fun main(args: Array<String>) {
-    print(tablePrompt)
-    var size = readInt()
-    while (size < 3) {
-        print("The table size should at least be 3: ")
-        size = readInt()
-    }
-
-    var table = MultiplicationTable(size)
+    var table = tablePrompt()
     println("$table\n")
 
     var promptAnswer: Char
@@ -41,8 +33,7 @@ fun main(args: Array<String>) {
                 break@loop
             }
             'm' -> {
-                print(tablePrompt)
-                table = MultiplicationTable(readInt())
+                table = tablePrompt()
                 println("$table\n")
                 continue@loop
             }
@@ -52,6 +43,18 @@ fun main(args: Array<String>) {
             }
         }
     }
+}
+
+fun tablePrompt(): MultiplicationTable {
+    print("Enter the size of the multiplication table [Default - 12 (12x12); table size should be min of 3]: ")
+    var size = readInt()
+    while (size < 3) {
+        print("The table size should at least be 3: ")
+        size = readInt()
+    }
+
+    return MultiplicationTable(size)
+
 }
 
 fun readInt(): Int {
