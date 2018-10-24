@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.joyousjake.flashCards"
-version = "SNAPSHOT1"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
